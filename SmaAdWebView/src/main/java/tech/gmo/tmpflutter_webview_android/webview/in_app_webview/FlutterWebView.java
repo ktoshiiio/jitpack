@@ -55,6 +55,9 @@ public class FlutterWebView implements PlatformWebView {
     Integer windowId = (Integer) params.get("windowId");
     List<Map<String, Object>> initialUserScripts = (List<Map<String, Object>>) params.get("initialUserScripts");
     Map<String, Object> pullToRefreshInitialSettings = (Map<String, Object>) params.get("pullToRefreshSettings");
+    if (pullToRefreshInitialSettings == null){
+      pullToRefreshInitialSettings = new HashMap<String, Object>();
+    }
 
     InAppWebViewSettings customSettings = new InAppWebViewSettings();
     customSettings.parse(initialSettings);
