@@ -16,8 +16,6 @@ import androidx.webkit.WebViewFeature;
 
 import tech.gmo.tmpflutter_webview_android.InAppWebViewFlutterPlugin;
 import tech.gmo.tmpflutter_webview_android.find_interaction.FindInteractionController;
-import tech.gmo.tmpflutter_webview_android.pull_to_refresh.PullToRefreshLayout;
-import tech.gmo.tmpflutter_webview_android.pull_to_refresh.PullToRefreshSettings;
 import tech.gmo.tmpflutter_webview_android.webview.PlatformWebView;
 import tech.gmo.tmpflutter_webview_android.types.URLRequest;
 import tech.gmo.tmpflutter_webview_android.types.UserScript;
@@ -34,8 +32,6 @@ public class FlutterWebView implements PlatformWebView {
 
   @Nullable
   public InAppWebView webView;
-  @Nullable
-  public PullToRefreshLayout pullToRefreshLayout;
   @Nullable
   public String keepAliveId;
 
@@ -72,14 +68,6 @@ public class FlutterWebView implements PlatformWebView {
     webView = new InAppWebView(context, plugin, id, windowId, customSettings, contextMenu,
             customSettings.useHybridComposition ? null : null, userScripts);
     displayListenerProxy.onPostWebViewInitialization(displayManager);
-
-    // set MATCH_PARENT layout params to the WebView, otherwise it won't take all the available space!
-    webView.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-    PullToRefreshSettings pullToRefreshSettings = new PullToRefreshSettings();
-    pullToRefreshSettings.parse(pullToRefreshInitialSettings);
-    pullToRefreshLayout = new PullToRefreshLayout(context, plugin, id, pullToRefreshSettings);
-    pullToRefreshLayout.addView(webView);
-    pullToRefreshLayout.prepare();
 
     FindInteractionController findInteractionController = new FindInteractionController(webView, plugin, id, null);
     webView.findInteractionController = findInteractionController;
