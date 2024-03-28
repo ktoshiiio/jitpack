@@ -1,1 +1,1 @@
-# jitpack
+# smaadsdk
