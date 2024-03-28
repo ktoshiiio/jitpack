@@ -48,6 +48,9 @@ public class FlutterWebView implements PlatformWebView {
     keepAliveId = (String) params.get("keepAliveId");
     
     Map<String, Object> initialSettings = (Map<String, Object>) params.get("initialSettings");
+    if (initialSettings == null) {
+      initialSettings = new HashMap<String, Object>(); // 空のマップをデフォルト値として設定
+    }
     Map<String, Object> contextMenu = (Map<String, Object>) params.get("contextMenu");
     Integer windowId = (Integer) params.get("windowId");
     List<Map<String, Object>> initialUserScripts = (List<Map<String, Object>>) params.get("initialUserScripts");
