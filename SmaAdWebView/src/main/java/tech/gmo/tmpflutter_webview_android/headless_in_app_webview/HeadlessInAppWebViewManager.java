@@ -65,7 +65,10 @@ public class HeadlessInAppWebViewManager {
 
   public void run(String id, HashMap<String, Object> params) {
     Log.e("TAG", "HeadlessAppWebViewManager.java run is called!!!");
-    if (plugin == null || (plugin.activity == null && plugin.applicationContext == null)) return;
+    if (plugin == null || (plugin.activity == null && plugin.applicationContext == null)) {
+      Log.e("TAG", "HeadlessAppWebViewManager.java  plugin null!!!");
+      return;
+    }
     Context context = plugin.activity;
     if (context == null) {
       context = plugin.applicationContext;
