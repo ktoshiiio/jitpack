@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -42,7 +44,7 @@ afterEvaluate{
             create("release", MavenPublication::class.java) {
                 groupId = "com.github.ktoshiiio"
                 artifactId = "jitpack"
-                version = "0.1.10"
+                version = "0.1.12"
                 artifact("$buildDir/outputs/aar/SmaAdWebView-release.aar")
             }
         }
