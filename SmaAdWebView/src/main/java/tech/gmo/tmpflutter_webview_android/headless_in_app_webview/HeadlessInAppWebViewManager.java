@@ -22,6 +22,7 @@
 package tech.gmo.tmpflutter_webview_android.headless_in_app_webview;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -63,6 +64,7 @@ public class HeadlessInAppWebViewManager {
 //  }
 
   public void run(String id, HashMap<String, Object> params) {
+    Log.e("TAG", "HeadlessAppWebViewManager.java run is called!!!");
     if (plugin == null || (plugin.activity == null && plugin.applicationContext == null)) return;
     Context context = plugin.activity;
     if (context == null) {
