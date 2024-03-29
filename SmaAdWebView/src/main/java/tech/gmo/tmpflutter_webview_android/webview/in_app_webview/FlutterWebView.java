@@ -37,6 +37,7 @@ public class FlutterWebView implements PlatformWebView {
 
   public FlutterWebView(final InAppWebViewFlutterPlugin plugin, final Context context, Object id,
                         HashMap<String, Object> params) {
+    Log.e("TAG", "FlutterWebView.java is called!!!");
     DisplayListenerProxy displayListenerProxy = new DisplayListenerProxy();
     DisplayManager displayManager = (DisplayManager) context.getSystemService(Context.DISPLAY_SERVICE);
     displayListenerProxy.onPreWebViewInitialization(displayManager);
