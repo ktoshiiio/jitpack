@@ -83,7 +83,6 @@ import tech.gmo.tmpflutter_webview_android.plugin_scripts_js.PrintJS;
 import tech.gmo.tmpflutter_webview_android.plugin_scripts_js.PromisePolyfillJS;
 import tech.gmo.tmpflutter_webview_android.print_job.PrintJobController;
 import tech.gmo.tmpflutter_webview_android.print_job.PrintJobSettings;
-import tech.gmo.tmpflutter_webview_android.pull_to_refresh.PullToRefreshLayout;
 import tech.gmo.tmpflutter_webview_android.types.ContentWorld;
 import tech.gmo.tmpflutter_webview_android.types.DownloadStartRequest;
 import tech.gmo.tmpflutter_webview_android.types.PluginScript;
@@ -1470,12 +1469,6 @@ final public class InAppWebView extends InputAwareWebView implements InAppWebVie
     lastTouch = new Point((int) ev.getX(), (int) ev.getY());
 
     ViewParent parent = getParent();
-    if (parent instanceof PullToRefreshLayout) {
-      PullToRefreshLayout pullToRefreshLayout = (PullToRefreshLayout) parent;
-      if (ev.getActionMasked() == MotionEvent.ACTION_DOWN) {
-        pullToRefreshLayout.setEnabled(false);
-      }
-    }
 
     return super.onTouchEvent(ev);
   }
@@ -1488,11 +1481,9 @@ final public class InAppWebView extends InputAwareWebView implements InAppWebVie
     boolean overScrolledVertically = canScrollVertically() && clampedY;
 
     ViewParent parent = getParent();
-    if (parent instanceof PullToRefreshLayout && overScrolledVertically && scrollY <= 10) {
-      PullToRefreshLayout pullToRefreshLayout = (PullToRefreshLayout) parent;
+    if (overScrolledVertically && scrollY <= 10) {
       // change over scroll mode to OVER_SCROLL_NEVER in order to disable temporarily the glow effect
       setOverScrollMode(OVER_SCROLL_NEVER);
-      pullToRefreshLayout.setEnabled(pullToRefreshLayout.settings.enabled);
       // reset over scroll mode
       setOverScrollMode(customSettings.overScrollMode);
     }

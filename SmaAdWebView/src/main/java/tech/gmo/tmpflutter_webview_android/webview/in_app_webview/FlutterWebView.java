@@ -50,10 +50,6 @@ public class FlutterWebView implements PlatformWebView {
     Map<String, Object> contextMenu = (Map<String, Object>) params.get("contextMenu");
     Integer windowId = (Integer) params.get("windowId");
     List<Map<String, Object>> initialUserScripts = (List<Map<String, Object>>) params.get("initialUserScripts");
-    Map<String, Object> pullToRefreshInitialSettings = (Map<String, Object>) params.get("pullToRefreshSettings");
-    if (pullToRefreshInitialSettings == null){
-      pullToRefreshInitialSettings = new HashMap<String, Object>();
-    }
 
     InAppWebViewSettings customSettings = new InAppWebViewSettings();
     customSettings.parse(initialSettings);
@@ -75,11 +71,6 @@ public class FlutterWebView implements PlatformWebView {
 
     webView.prepare();
   }
-
-//  @Override
-//  public View getView() {
-//    return pullToRefreshLayout != null ? pullToRefreshLayout : webView;
-//  }
 
   @SuppressLint("RestrictedApi")
   public void makeInitialLoad(HashMap<String, Object> params) {

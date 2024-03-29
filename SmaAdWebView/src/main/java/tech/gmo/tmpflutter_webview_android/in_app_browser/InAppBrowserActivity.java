@@ -28,9 +28,6 @@ import androidx.appcompat.view.menu.MenuBuilder;
 import tech.gmo.tmpflutter_webview_android.R;
 import tech.gmo.tmpflutter_webview_android.Util;
 import tech.gmo.tmpflutter_webview_android.find_interaction.FindInteractionController;
-import tech.gmo.tmpflutter_webview_android.pull_to_refresh.PullToRefreshChannelDelegate;
-import tech.gmo.tmpflutter_webview_android.pull_to_refresh.PullToRefreshLayout;
-import tech.gmo.tmpflutter_webview_android.pull_to_refresh.PullToRefreshSettings;
 import tech.gmo.tmpflutter_webview_android.types.AndroidResource;
 import tech.gmo.tmpflutter_webview_android.types.Disposable;
 import tech.gmo.tmpflutter_webview_android.types.InAppBrowserMenuItem;
@@ -55,8 +52,6 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
   public String id;
   @Nullable
   public InAppWebView webView;
-  @Nullable
-  public PullToRefreshLayout pullToRefreshLayout;
   @Nullable
   public ActionBar actionBar;
   @Nullable
@@ -95,14 +90,6 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
     windowId = b.getInt("windowId");
 
     setContentView(R.layout.activity_web_view);
-
-    Map<String, Object> pullToRefreshInitialSettings = (Map<String, Object>) b.getSerializable("pullToRefreshInitialSettings");
-    PullToRefreshSettings pullToRefreshSettings = new PullToRefreshSettings();
-    pullToRefreshSettings.parse(pullToRefreshInitialSettings);
-    pullToRefreshLayout = findViewById(R.id.pullToRefresh);
-    pullToRefreshLayout.channelDelegate = new PullToRefreshChannelDelegate(pullToRefreshLayout);
-    pullToRefreshLayout.settings = pullToRefreshSettings;
-    pullToRefreshLayout.prepare();
     
     webView = findViewById(R.id.webView);
     webView.id = id;

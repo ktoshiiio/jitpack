@@ -10,15 +10,10 @@
     tools:context="tech.gmo.tmpflutter_webview_android.in_app_browser.InAppBrowserActivity"
     android:focusable="true">
 
-    <tech.gmo.tmpflutter_webview_android.pull_to_refresh.PullToRefreshLayout
-        android:id="@+id/pullToRefresh"
+    <tech.gmo.tmpflutter_webview_android.webview.in_app_webview.InAppWebView
+        android:id="@+id/webView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <tech.gmo.tmpflutter_webview_android.webview.in_app_webview.InAppWebView
-            android:id="@+id/webView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </tech.gmo.tmpflutter_webview_android.pull_to_refresh.PullToRefreshLayout>
+        android:layout_height="match_parent" />
 
     <ProgressBar
         android:id="@+id/progressBar"
