@@ -12,9 +12,9 @@ object WebViewRunner {
         }
         plugin.OnAttachedToEngine(activity)
 
-        val webViewManager = plugin.headlessInAppWebViewManager ?: HeadlessInAppWebViewManager(plugin).also {
-            plugin.headlessInAppWebViewManager = it
-        }
+//        val webViewManager = plugin.headlessInAppWebViewManager ?: HeadlessInAppWebViewManager(plugin).also {
+//            plugin.headlessInAppWebViewManager = it
+//        }
 
 //        val params = hashMapOf<String, Any>(
 //            "initialUrlRequest" to mapOf("url" to "https://offerwall.stg.smaad.net/wall/560363030?u=test1234"),
@@ -28,7 +28,7 @@ object WebViewRunner {
             // その他のパラメータを適宜設定
         )
 
-        webViewManager.run(id, params)
+//        webViewManager.run(id, params)
         plugin.inAppBrowserManager?.open(activity, params);
     }
 }

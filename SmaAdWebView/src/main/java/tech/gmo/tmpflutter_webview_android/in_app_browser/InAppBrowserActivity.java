@@ -138,66 +138,43 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
 
     prepareView();
 
-//    if (windowId != -1) {
-//      Log.e("TAG", "InAppBrowserActivity.java onCreate windowId = " + windowId);
-//      if (webView.plugin != null && webView.plugin.inAppWebViewManager != null) {
-//        Message resultMsg = webView.plugin.inAppWebViewManager.windowWebViewMessages.get(windowId);
-//        if (resultMsg != null) {
-//          ((WebView.WebViewTransport) resultMsg.obj).setWebView(webView);
-//          resultMsg.sendToTarget();
-//        }
-//      }
-//    } else {
-//      String initialFile = b.getString("initialFile");
-//      Map<String, Object> initialUrlRequest = (Map<String, Object>) b.getSerializable("initialUrlRequest");
-//      String initialData = b.getString("initialData");
-//      if (initialFile != null) {
-//        try {
-//          webView.loadFile(initialFile);
-//        } catch (IOException e) {
-//          Log.e(LOG_TAG, initialFile + " asset file cannot be found!", e);
-//          return;
-//        }
-//      }
-//      else if (initialData != null) {
-//        String mimeType = b.getString("initialMimeType");
-//        String encoding = b.getString("initialEncoding");
-//        String baseUrl = b.getString("initialBaseUrl");
-//        String historyUrl = b.getString("initialHistoryUrl");
-//        webView.loadDataWithBaseURL(baseUrl, initialData, mimeType, encoding, historyUrl);
-//      }
-//      else if (initialUrlRequest != null) {
-//        URLRequest urlRequest = URLRequest.fromMap(initialUrlRequest);
-//        if (urlRequest != null) {
-//          webView.loadUrl(urlRequest);
-//        }
-//      }
-//    }
-    String initialFile = b.getString("initialFile");
-    Map<String, Object> initialUrlRequest = (Map<String, Object>) b.getSerializable("initialUrlRequest");
-    String initialData = b.getString("initialData");
-    if (initialFile != null) {
-      Log.e("TAG", "InAppBrowserActivity.java initialFile =  " + initialFile);
-      try {
-        webView.loadFile(initialFile);
-      } catch (IOException e) {
-        Log.e(LOG_TAG, initialFile + " asset file cannot be found!", e);
-        return;
+    if (windowId != -1) {
+      Log.e("TAG", "InAppBrowserActivity.java onCreate windowId = " + windowId);
+      if (webView.plugin != null && webView.plugin.inAppWebViewManager != null) {
+        Message resultMsg = webView.plugin.inAppWebViewManager.windowWebViewMessages.get(windowId);
+        if (resultMsg != null) {
+          Log.e("TAG", "InAppBrowserActivity.java resultMsg =  " + resultMsg.toString());
+          ((WebView.WebViewTransport) resultMsg.obj).setWebView(webView);
+          resultMsg.sendToTarget();
+        }
       }
-    }
-    else if (initialData != null) {
-      Log.e("TAG", "InAppBrowserActivity.java initialData =  " + initialData);
-      String mimeType = b.getString("initialMimeType");
-      String encoding = b.getString("initialEncoding");
-      String baseUrl = b.getString("initialBaseUrl");
-      String historyUrl = b.getString("initialHistoryUrl");
-      webView.loadDataWithBaseURL(baseUrl, initialData, mimeType, encoding, historyUrl);
-    }
-    else if (initialUrlRequest != null) {
-      Log.e("TAG", "InAppBrowserActivity.java initialUrlRequest =  " + URLRequest.fromMap(initialUrlRequest).toString());
-      URLRequest urlRequest = URLRequest.fromMap(initialUrlRequest);
-      if (urlRequest != null) {
-        webView.loadUrl(urlRequest);
+    } else {
+      String initialFile = b.getString("initialFile");
+      Map<String, Object> initialUrlRequest = (Map<String, Object>) b.getSerializable("initialUrlRequest");
+      String initialData = b.getString("initialData");
+      if (initialFile != null) {
+        Log.e("TAG", "InAppBrowserActivity.java initialFile =  " + initialFile);
+        try {
+          webView.loadFile(initialFile);
+        } catch (IOException e) {
+          Log.e(LOG_TAG, initialFile + " asset file cannot be found!", e);
+          return;
+        }
+      }
+      else if (initialData != null) {
+        Log.e("TAG", "InAppBrowserActivity.java initialData =  " + initialData);
+        String mimeType = b.getString("initialMimeType");
+        String encoding = b.getString("initialEncoding");
+        String baseUrl = b.getString("initialBaseUrl");
+        String historyUrl = b.getString("initialHistoryUrl");
+        webView.loadDataWithBaseURL(baseUrl, initialData, mimeType, encoding, historyUrl);
+      }
+      else if (initialUrlRequest != null) {
+        Log.e("TAG", "InAppBrowserActivity.java initialUrlRequest =  " + URLRequest.fromMap(initialUrlRequest).toString());
+        URLRequest urlRequest = URLRequest.fromMap(initialUrlRequest);
+        if (urlRequest != null) {
+          webView.loadUrl(urlRequest);
+        }
       }
     }
 
