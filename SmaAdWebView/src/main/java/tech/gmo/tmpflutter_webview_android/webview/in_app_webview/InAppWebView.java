@@ -197,6 +197,7 @@ final public class InAppWebView extends InputAwareWebView implements InAppWebVie
     this.contextMenu = contextMenu;
     this.initialUserOnlyScripts = userScripts;
     if (plugin != null && plugin.activity != null) {
+      Log.e("TAG", "InAppWebView.java plugin is not null plugin activity is not null!!!!");
       plugin.activity.registerForContextMenu(this);
     }
   }
@@ -233,6 +234,7 @@ final public class InAppWebView extends InputAwareWebView implements InAppWebVie
 
   @SuppressLint("RestrictedApi")
   public void prepare() {
+    Log.e("TAG", "InAppWebView.java prepare is called!!!!");
     if (plugin != null) {
       webViewAssetLoaderExt = WebViewAssetLoaderExt.fromMap(customSettings.webViewAssetLoader, plugin, getContext());
     }
@@ -637,15 +639,18 @@ final public class InAppWebView extends InputAwareWebView implements InAppWebVie
   }
 
   public void loadUrl(URLRequest urlRequest) {
+    Log.e("TAG", "InAppWebView.java loadUrl is called!!!!");
     String url = urlRequest.getUrl();
     String method = urlRequest.getMethod();
     if (method != null && method.equals("POST")) {
       byte[] postData = urlRequest.getBody();
+      Log.e("TAG", "InAppWebView.java postUrl is called!!!!");
       postUrl(url, postData);
       return;
     }
     Map<String, String> headers = urlRequest.getHeaders();
     if (headers != null) {
+      Log.e("TAG", "InAppWebView.java postUrl with headers is called!!!!");
       loadUrl(url, headers);
       return;
     }

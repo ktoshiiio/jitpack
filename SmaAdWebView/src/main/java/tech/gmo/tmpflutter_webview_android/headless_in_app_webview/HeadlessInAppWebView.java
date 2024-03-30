@@ -1,6 +1,7 @@
 package tech.gmo.tmpflutter_webview_android.headless_in_app_webview;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -34,6 +35,7 @@ public class HeadlessInAppWebView implements Disposable {
     this.plugin = plugin;
     this.flutterWebView = flutterWebView;
     this.channelDelegate = new HeadlessWebViewChannelDelegate(this);
+    Log.e("TAG", "HeadlessInAppWebView.java called!!!! ");
   }
 
   public void onWebViewCreated() {
