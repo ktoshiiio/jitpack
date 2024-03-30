@@ -74,6 +74,7 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    Log.e("TAG", "InAppBrowserActivity.java onCreate is called!!!!");
 
     Bundle b = getIntent().getExtras();
     if (b == null) return;

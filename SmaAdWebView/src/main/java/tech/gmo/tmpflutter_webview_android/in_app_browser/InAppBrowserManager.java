@@ -57,34 +57,11 @@ public class InAppBrowserManager {
   public static final Map<String, InAppBrowserManager> shared = new HashMap<>();
 
   public InAppBrowserManager(final InAppWebViewFlutterPlugin plugin) {
+    Log.e("TAG", "InAppBrowserManager.java is called!!!!");
     this.id = UUID.randomUUID().toString();
     this.plugin = plugin;
     shared.put(this.id, this);
   }
-
-//  @Override
-//  public void onMethodCall(@NonNull MethodCall call, @NonNull MethodChannel.Result result) {
-//    switch (call.method) {
-//      case "open":
-//        if (plugin != null && plugin.activity != null) {
-//          open(plugin.activity, (Map<String, Object>) call.arguments());
-//          result.success(true);
-//        } else {
-//          result.success(false);
-//        }
-//        break;
-//      case "openWithSystemBrowser":
-//        if (plugin != null && plugin.activity != null) {
-//          String url = (String) call.argument("url");
-//          openWithSystemBrowser(plugin.activity, url, result);
-//        } else {
-//          result.success(false);
-//        }
-//        break;
-//      default:
-//        result.notImplemented();
-//    }
-//  }
 
   public static String getMimeType(String url) {
     String type = null;

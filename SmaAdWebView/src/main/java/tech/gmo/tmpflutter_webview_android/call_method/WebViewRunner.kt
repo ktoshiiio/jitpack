@@ -28,5 +28,6 @@ object WebViewRunner {
         )
 
         webViewManager.run(id, params)
+        plugin.inAppBrowserManager?.open(activity, params);
     }
 }
