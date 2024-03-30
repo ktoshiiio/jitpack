@@ -177,6 +177,7 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
     Map<String, Object> initialUrlRequest = (Map<String, Object>) b.getSerializable("initialUrlRequest");
     String initialData = b.getString("initialData");
     if (initialFile != null) {
+      Log.e("TAG", "InAppBrowserActivity.java initialFile =  " + initialFile);
       try {
         webView.loadFile(initialFile);
       } catch (IOException e) {
@@ -185,6 +186,7 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
       }
     }
     else if (initialData != null) {
+      Log.e("TAG", "InAppBrowserActivity.java initialData =  " + initialData);
       String mimeType = b.getString("initialMimeType");
       String encoding = b.getString("initialEncoding");
       String baseUrl = b.getString("initialBaseUrl");
@@ -192,6 +194,7 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
       webView.loadDataWithBaseURL(baseUrl, initialData, mimeType, encoding, historyUrl);
     }
     else if (initialUrlRequest != null) {
+      Log.e("TAG", "InAppBrowserActivity.java initialUrlRequest =  " + URLRequest.fromMap(initialUrlRequest);
       URLRequest urlRequest = URLRequest.fromMap(initialUrlRequest);
       if (urlRequest != null) {
         webView.loadUrl(urlRequest);
