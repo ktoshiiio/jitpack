@@ -138,6 +138,7 @@ public class InAppBrowserManager {
   }
 
   public void open(Activity activity, Map<String, Object> arguments) {
+    Log.e("TAG", "InAppBrowserManager.java open is called!!!!");
     String id = (String) arguments.get("id");
     Map<String, Object> urlRequest = (Map<String, Object>) arguments.get("urlRequest");
     String assetFilePath = (String) arguments.get("assetFilePath");
@@ -150,7 +151,7 @@ public class InAppBrowserManager {
     Map<String, Object> contextMenu = (Map<String, Object>) arguments.get("contextMenu");
     Integer windowId = (Integer) arguments.get("windowId");
     List<Map<String, Object>> initialUserScripts = (List<Map<String, Object>>) arguments.get("initialUserScripts");
-    List<Map<String, Object>> menuItems = (List<Map<String, Object>>) arguments.get("menuItems");
+//    List<Map<String, Object>> menuItems = (List<Map<String, Object>>) arguments.get("menuItems");
 
     Bundle extras = new Bundle();
     extras.putString("fromActivity", activity.getClass().getName());
@@ -167,14 +168,17 @@ public class InAppBrowserManager {
     extras.putSerializable("contextMenu", (Serializable) contextMenu);
     extras.putInt("windowId", windowId != null ? windowId : -1);
     extras.putSerializable("initialUserScripts", (Serializable) initialUserScripts);
-    extras.putSerializable("menuItems", (Serializable) menuItems);
+//    extras.putSerializable("menuItems", (Serializable) menuItems);
     startInAppBrowserActivity(activity, extras);
   }
 
   public void startInAppBrowserActivity(Activity activity, Bundle extras) {
+    Log.e("TAG", "InAppBrowserManager.java startInAppBrowserActivity is called!!!!");
     Intent intent = new Intent(activity, InAppBrowserActivity.class);
-    if (extras != null)
+    if (extras != null){
+      Log.e("TAG", "InAppBrowserManager.java extras is not null !!!!");
       intent.putExtras(extras);
+    }
     activity.startActivity(intent);
   }
 

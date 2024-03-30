@@ -77,13 +77,19 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
     Log.e("TAG", "InAppBrowserActivity.java onCreate is called!!!!");
 
     Bundle b = getIntent().getExtras();
-    if (b == null) return;
+    if (b == null){
+      Log.e("TAG", "InAppBrowserActivity.java getIntent().getExtras() is null");
+      return;
+    }
     
     id = b.getString("id");
 
     String managerId = b.getString("managerId");
     manager = InAppBrowserManager.shared.get(managerId);
-    if (manager == null || manager.plugin == null) return;
+    if (manager == null || manager.plugin == null){
+      Log.e("TAG", "InAppBrowserActivity.java manager is null or manager.plugin is null");
+      return;
+    }
 
 //    Map<String, Object> settingsMap = (Map<String, Object>) b.getSerializable("settings");
 //    customSettings.parse(settingsMap);
@@ -172,15 +178,21 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
   }
 
   private void prepareView() {
-
+    Log.e("TAG", "InAppBrowserActivity.java prepareView is called");
     if (webView != null) {
+      Log.e("TAG", "InAppBrowserActivity.java prepareView webView is not null");
       webView.prepare();
     }
 
-    if (customSettings.hidden)
+    if (customSettings.hidden){
+      Log.e("TAG", "InAppBrowserActivity.java prepareView customSettins hidden is true");
       hide();
-    else
+    }
+    else{
+      Log.e("TAG", "InAppBrowserActivity.java prepareView customSettins hidden is false");
       show();
+    }
+
 
     progressBar = findViewById(R.id.progressBar);
 
