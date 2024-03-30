@@ -46,11 +46,19 @@ public class FlutterWebView implements PlatformWebView {
     
     Map<String, Object> initialSettings = (Map<String, Object>) params.get("initialSettings");
     if (initialSettings == null) {
+      Log.e("TAG", "FlutterWebView.java initialSettings is null");
       initialSettings = new HashMap<String, Object>(); // 空のマップをデフォルト値として設定
     }
     Map<String, Object> contextMenu = (Map<String, Object>) params.get("contextMenu");
+    if (contextMenu == null){
+      Log.e("TAG", "FlutterWebView.java contextMenu is null");
+      contextMenu = new HashMap<String, Object>();
+    }
     Integer windowId = (Integer) params.get("windowId");
     List<Map<String, Object>> initialUserScripts = (List<Map<String, Object>>) params.get("initialUserScripts");
+    if (initialUserScripts == null){
+      Log.e("TAG", "FlutterWebView.java initialUserScripts is null");
+    }
 
     InAppWebViewSettings customSettings = new InAppWebViewSettings();
     customSettings.parse(initialSettings);
@@ -75,12 +83,17 @@ public class FlutterWebView implements PlatformWebView {
 
   @SuppressLint("RestrictedApi")
   public void makeInitialLoad(HashMap<String, Object> params) {
+    Log.e("TAG", "FlutterWebView.java makeInitialLoad is called!!!!");
     if (webView == null) {
+      Log.e("TAG", "FlutterWebView.java makeInitialLoad webView is null!!!!");
       return;
     }
 
     Integer windowId = (Integer) params.get("windowId");
     Map<String, Object> initialUrlRequest = (Map<String, Object>) params.get("initialUrlRequest");
+    if (initialUrlRequest != null){
+
+    }
     final String initialFile = (String) params.get("initialFile");
     final Map<String, String> initialData = (Map<String, String>) params.get("initialData");
 
@@ -127,6 +140,7 @@ public class FlutterWebView implements PlatformWebView {
       else if (initialUrlRequest != null) {
         URLRequest urlRequest = URLRequest.fromMap(initialUrlRequest);
         if (urlRequest != null) {
+          Log.e("TAG", "URL Request: " + urlRequest.getUrl());
           webView.loadUrl(urlRequest);
         }
       }

@@ -3,6 +3,7 @@ package tech.gmo.tmpflutter_webview_android;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -56,7 +57,9 @@ public class InAppWebViewFlutterPlugin {
   @Nullable
   public Activity activity;
 
-  public InAppWebViewFlutterPlugin() {}
+  public InAppWebViewFlutterPlugin() {
+    Log.e("TAG", "InAppWebViewFlutterPlugin.java is called");
+  }
 
 //  @SuppressWarnings("deprecation")
 //  public static void registerWith(PluginRegistry.Registrar registrar) {
@@ -67,7 +70,7 @@ public class InAppWebViewFlutterPlugin {
 //  }
 
   public void OnAttachedToEngine(Activity activity) {
-
+    Log.e("TAG", "InAppWebViewFlutterPlugin.java OnAttachedToEngine is called!!!!");
     // Shared.activity could be null or not.
     // It depends on who is called first between onAttachedToEngine event and onAttachedToActivity event.
     //
@@ -77,6 +80,7 @@ public class InAppWebViewFlutterPlugin {
 
   @SuppressWarnings("deprecation")
   private void onAttachedToEngine(Context applicationContext, Activity activity) {
+    Log.e("TAG", "InAppWebViewFlutterPlugin.java OnAttachedToEngine inside is called!!!!");
     this.applicationContext = applicationContext;
     this.activity = activity;
 

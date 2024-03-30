@@ -1,4 +1,5 @@
 import android.app.Activity
+import android.util.Log
 import tech.gmo.tmpflutter_webview_android.InAppWebViewFlutterPlugin
 import tech.gmo.tmpflutter_webview_android.headless_in_app_webview.HeadlessInAppWebViewManager
 
@@ -6,6 +7,9 @@ object WebViewRunner {
 
     fun runWebView(id: String, activity: Activity) {
         val plugin = InAppWebViewFlutterPlugin()
+        if (activity == null){
+            Log.e("TAG", "WebViewRunner.kt activity is null!!!!")
+        }
         plugin.OnAttachedToEngine(activity)
 
         val webViewManager = plugin.headlessInAppWebViewManager ?: HeadlessInAppWebViewManager(plugin).also {

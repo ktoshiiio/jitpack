@@ -188,6 +188,7 @@ final public class InAppWebView extends InputAwareWebView implements InAppWebVie
                       @Nullable Map<String, Object> contextMenu, View containerView,
                       List<UserScript> userScripts) {
     super(context, containerView, customSettings.useHybridComposition);
+    Log.e("TAG", "InAppWebView.java is called!!!!");
     this.plugin = plugin;
     this.id = id;
     this.channelDelegate = new WebViewChannelDelegate(this);

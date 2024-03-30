@@ -71,6 +71,7 @@ public class HeadlessInAppWebViewManager {
     }
     Context context = plugin.activity;
     if (context == null) {
+      Log.e("TAG", "HeadlessAppWebViewManager.java context is null!!!!");
       context = plugin.applicationContext;
     }
     FlutterWebView flutterWebView = new FlutterWebView(plugin, context, id, params);
