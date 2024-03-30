@@ -39,6 +39,7 @@ public class HeadlessInAppWebView implements Disposable {
   }
 
   public void onWebViewCreated() {
+    Log.e("TAG", "HeadlessInAppWebView.java onWebViewCreated is called!!!!");
     if (channelDelegate != null) {
       channelDelegate.onWebViewCreated();
     }
@@ -46,16 +47,16 @@ public class HeadlessInAppWebView implements Disposable {
 
   public void prepare(Map<String, Object> params) {
     if (flutterWebView != null) {
-//      View view = flutterWebView.getView();
-//      if (view != null) {
-//        final Map<String, Object> initialSize = (Map<String, Object>) params.get("initialSize");
-//        Size2D size = Size2D.fromMap(initialSize);
-//        if (size == null) {
-//          size = new Size2D(-1, -1);
-//        }
-//        setSize(size);
-//        view.setVisibility(View.INVISIBLE);
-//      }
+      View view = flutterWebView.getView();
+      if (view != null) {
+        final Map<String, Object> initialSize = (Map<String, Object>) params.get("initialSize");
+        Size2D size = Size2D.fromMap(initialSize);
+        if (size == null) {
+          size = new Size2D(-1, -1);
+        }
+        setSize(size);
+        view.setVisibility(View.INVISIBLE);
+      }
     }
     if (plugin != null && plugin.activity != null) {
       // Add the headless WebView to the view hierarchy.
@@ -64,10 +65,10 @@ public class HeadlessInAppWebView implements Disposable {
       if (contentView != null) {
         ViewGroup mainView = (ViewGroup) (contentView).getChildAt(0);
         if (mainView != null && flutterWebView != null) {
-//          View view = flutterWebView.getView();
-//          if (view != null) {
-//            mainView.addView(view, 0);
-//          }
+          View view = flutterWebView.getView();
+          if (view != null) {
+            mainView.addView(view, 0);
+          }
         } 
       }
     }
@@ -75,30 +76,30 @@ public class HeadlessInAppWebView implements Disposable {
   
   public void setSize(@NonNull Size2D size) {
     if (flutterWebView != null && flutterWebView.webView != null) {
-//      View view = flutterWebView.getView();
-//      if (view != null) {
-//        float scale = Util.getPixelDensity(view.getContext());
-//        Size2D fullscreenSize = Util.getFullscreenSize(view.getContext());
-//        int width = (int) (size.getWidth() == -1 ? fullscreenSize.getWidth() : (size.getWidth() * scale));
-//        int height = (int) (size.getWidth() == -1 ? fullscreenSize.getHeight() : (size.getHeight() * scale));
-//        view.setLayoutParams(new FrameLayout.LayoutParams(width, height));
-//      }
+      View view = flutterWebView.getView();
+      if (view != null) {
+        float scale = Util.getPixelDensity(view.getContext());
+        Size2D fullscreenSize = Util.getFullscreenSize(view.getContext());
+        int width = (int) (size.getWidth() == -1 ? fullscreenSize.getWidth() : (size.getWidth() * scale));
+        int height = (int) (size.getWidth() == -1 ? fullscreenSize.getHeight() : (size.getHeight() * scale));
+        view.setLayoutParams(new FrameLayout.LayoutParams(width, height));
+      }
     }
   }
 
   @Nullable
   public Size2D getSize() {
     if (flutterWebView != null && flutterWebView.webView != null) {
-//      View view = flutterWebView.getView();
-//      if (view != null) {
-//        float scale = Util.getPixelDensity(view.getContext());
-//        Size2D fullscreenSize = Util.getFullscreenSize(view.getContext());
-//        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-//        return new Size2D(
-//                fullscreenSize.getWidth() == layoutParams.width ? layoutParams.width : (layoutParams.width / scale),
-//                fullscreenSize.getHeight() == layoutParams.height ? layoutParams.height : (layoutParams.height / scale)
-//        );
-//      }
+      View view = flutterWebView.getView();
+      if (view != null) {
+        float scale = Util.getPixelDensity(view.getContext());
+        Size2D fullscreenSize = Util.getFullscreenSize(view.getContext());
+        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        return new Size2D(
+                fullscreenSize.getWidth() == layoutParams.width ? layoutParams.width : (layoutParams.width / scale),
+                fullscreenSize.getHeight() == layoutParams.height ? layoutParams.height : (layoutParams.height / scale)
+        );
+      }
     }
     return null;
   }
@@ -107,17 +108,17 @@ public class HeadlessInAppWebView implements Disposable {
   public FlutterWebView disposeAndGetFlutterWebView() {
     FlutterWebView newFlutterWebView = flutterWebView;
     if (flutterWebView != null) {
-//      View view = flutterWebView.getView();
-//      if (view != null) {
-//        // restore WebView layout params and visibility
-//        view.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-//        view.setVisibility(View.VISIBLE);
-//        // remove from parent
-//        ViewGroup parent = (ViewGroup) view.getParent();
-//        if (parent != null) {
-//          parent.removeView(view);
-//        }
-//      }
+      View view = flutterWebView.getView();
+      if (view != null) {
+        // restore WebView layout params and visibility
+        view.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        view.setVisibility(View.VISIBLE);
+        // remove from parent
+        ViewGroup parent = (ViewGroup) view.getParent();
+        if (parent != null) {
+          parent.removeView(view);
+        }
+      }
       // set to null to avoid to be disposed before calling "dispose()"
       flutterWebView = null;
       dispose();
@@ -139,17 +140,17 @@ public class HeadlessInAppWebView implements Disposable {
         ViewGroup contentView = plugin.activity.findViewById(android.R.id.content);
         if (contentView != null) {
           ViewGroup mainView = (ViewGroup) (contentView).getChildAt(0);
-//          if (mainView != null && flutterWebView != null) {
-//            View view = flutterWebView.getView();
-//            if (view != null) {
-//              mainView.removeView(flutterWebView.getView());
-//            }
-//          }
+          if (mainView != null && flutterWebView != null) {
+            View view = flutterWebView.getView();
+            if (view != null) {
+              mainView.removeView(flutterWebView.getView());
+            }
+          }
         }
       }
     }
     if (flutterWebView != null) {
-//      flutterWebView.dispose();
+      flutterWebView.dispose();
     }
     flutterWebView = null;
     plugin = null;

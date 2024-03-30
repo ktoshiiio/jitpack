@@ -81,6 +81,10 @@ public class FlutterWebView implements PlatformWebView {
     webView.prepare();
   }
 
+  public View getView() {
+    return webView;
+  }
+
   @SuppressLint("RestrictedApi")
   public void makeInitialLoad(HashMap<String, Object> params) {
     Log.e("TAG", "FlutterWebView.java makeInitialLoad is called!!!!");
@@ -147,42 +151,32 @@ public class FlutterWebView implements PlatformWebView {
     }
   }
 
-//  @Override
-//  public void dispose() {
-//    if (keepAliveId == null && webView != null) {
-//      webView.dispose();
-//      webView = null;
-//
-//      if (pullToRefreshLayout != null) {
-//        pullToRefreshLayout.dispose();
-//        pullToRefreshLayout = null;
-//      }
-//    }
-//  }
+  public void dispose() {
+    if (keepAliveId == null && webView != null) {
+      webView.dispose();
+      webView = null;
+    }
+  }
 
-//  @Override
-//  public void onInputConnectionLocked() {
-//    if (webView != null && webView.inAppBrowserDelegate == null && !webView.customSettings.useHybridComposition)
-//      webView.lockInputConnection();
-//  }
+  public void onInputConnectionLocked() {
+    if (webView != null && webView.inAppBrowserDelegate == null && !webView.customSettings.useHybridComposition)
+      webView.lockInputConnection();
+  }
 
-//  @Override
-//  public void onInputConnectionUnlocked() {
-//    if (webView != null && webView.inAppBrowserDelegate == null && !webView.customSettings.useHybridComposition)
-//      webView.unlockInputConnection();
-//  }
+  public void onInputConnectionUnlocked() {
+    if (webView != null && webView.inAppBrowserDelegate == null && !webView.customSettings.useHybridComposition)
+      webView.unlockInputConnection();
+  }
 
-//  @Override
-//  public void onFlutterViewAttached(@NonNull View flutterView) {
-//    if (webView != null && !webView.customSettings.useHybridComposition) {
-//      webView.setContainerView(flutterView);
-//    }
-//  }
+  public void onFlutterViewAttached(@NonNull View flutterView) {
+    if (webView != null && !webView.customSettings.useHybridComposition) {
+      webView.setContainerView(flutterView);
+    }
+  }
 
-//  @Override
-//  public void onFlutterViewDetached() {
-//    if (webView != null && !webView.customSettings.useHybridComposition) {
-//      webView.setContainerView(null);
-//    }
-//  }
+  public void onFlutterViewDetached() {
+    if (webView != null && !webView.customSettings.useHybridComposition) {
+      webView.setContainerView(null);
+    }
+  }
 }
