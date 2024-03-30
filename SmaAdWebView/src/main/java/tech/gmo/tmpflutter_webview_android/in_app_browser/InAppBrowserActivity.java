@@ -215,14 +215,14 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
       Log.e("TAG", "InAppBrowserActivity.java prepareView webView is null");
     }
 
-    if (customSettings.hidden){
-      Log.e("TAG", "InAppBrowserActivity.java prepareView customSettins hidden is true");
-      hide();
-    }
-    else{
-      Log.e("TAG", "InAppBrowserActivity.java prepareView customSettins hidden is false");
-      show();
-    }
+//    if (customSettings.hidden){
+//      Log.e("TAG", "InAppBrowserActivity.java prepareView customSettins hidden is true");
+//      hide();
+//    }
+//    else{
+//      Log.e("TAG", "InAppBrowserActivity.java prepareView customSettins hidden is false");
+//      show();
+//    }
 
 
     progressBar = findViewById(R.id.progressBar);

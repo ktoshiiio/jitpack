@@ -236,11 +236,12 @@ final public class InAppWebView extends InputAwareWebView implements InAppWebVie
   public void prepare() {
     Log.e("TAG", "InAppWebView.java prepare is called!!!!");
     if (plugin != null) {
+      Log.e("TAG", "InAppWebView.java prepareView plugin is not null");
       webViewAssetLoaderExt = WebViewAssetLoaderExt.fromMap(customSettings.webViewAssetLoader, plugin, getContext());
     }
 
     javaScriptBridgeInterface = new JavaScriptBridgeInterface(this);
-//    addJavascriptInterface(javaScriptBridgeInterface, JavaScriptBridgeJS.JAVASCRIPT_BRIDGE_NAME);
+    addJavascriptInterface(javaScriptBridgeInterface, JavaScriptBridgeJS.JAVASCRIPT_BRIDGE_NAME);
     addJavascriptInterface(javaScriptBridgeInterface, "Android");
 
     inAppWebViewChromeClient = new InAppWebViewChromeClient(plugin, this, inAppBrowserDelegate);
