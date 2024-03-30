@@ -109,10 +109,10 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
 
     Map<String, Object> contextMenu = (Map<String, Object>) b.getSerializable("contextMenu");
     List<Map<String, Object>> initialUserScripts = (List<Map<String, Object>>) b.getSerializable("initialUserScripts");
-    List<Map<String, Object>> menuItemList = (List<Map<String, Object>>) b.getSerializable("menuItems");
-    for (Map<String, Object> menuItem : menuItemList) {
-      menuItems.add(InAppBrowserMenuItem.fromMap(menuItem));
-    }
+//    List<Map<String, Object>> menuItemList = (List<Map<String, Object>>) b.getSerializable("menuItems");
+//    for (Map<String, Object> menuItem : menuItemList) {
+//      menuItems.add(InAppBrowserMenuItem.fromMap(menuItem));
+//    }
 
     InAppWebViewSettings webViewSettings = new InAppWebViewSettings();
 //    webViewSettings.parse(settingsMap);
