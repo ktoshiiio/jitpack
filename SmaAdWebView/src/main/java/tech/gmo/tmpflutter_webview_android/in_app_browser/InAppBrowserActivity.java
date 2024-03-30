@@ -128,7 +128,7 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
 
     List<UserScript> userScripts = new ArrayList<>();
     if (initialUserScripts != null) {
-      for (Map<String, Object> initialUserScript : initialUserScripts) {
+      for (Map<String, Object> initialUserScript : inßitialUserScripts) {
         userScripts.add(UserScript.fromMap(initialUserScript));
       }
     }
@@ -136,7 +136,7 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
 
     actionBar = getSupportActionBar();
 
-    prepareView();
+//    prepareView();
 
 //    if (windowId != -1) {
 //      Log.e("TAG", "InAppBrowserActivity.java onCreate windowId = " + windowId);
