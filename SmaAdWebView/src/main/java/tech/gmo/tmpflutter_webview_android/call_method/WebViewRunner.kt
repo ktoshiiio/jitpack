@@ -24,7 +24,7 @@ object WebViewRunner {
 //        )
         val params = hashMapOf<String, Any>(
             "initialUrlRequest" to mapOf("url" to "https://offerwall.stg.smaad.net/wall/560363030?u=test1234"),
-            "windowId" to mapOf("windowId" to "1"),
+            "windowId" to mapOf("windowId" to 1),
             // その他のパラメータを適宜設定
         )
 
