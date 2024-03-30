@@ -146,7 +146,7 @@ public class InAppBrowserManager {
     String encoding = (String) arguments.get("encoding");
     String baseUrl = (String) arguments.get("baseUrl");
     String historyUrl = (String) arguments.get("historyUrl");
-    Map<String, Object> settings = (Map<String, Object>) arguments.get("settings");
+//    Map<String, Object> settings = (Map<String, Object>) arguments.get("settings");
     Map<String, Object> contextMenu = (Map<String, Object>) arguments.get("contextMenu");
     Integer windowId = (Integer) arguments.get("windowId");
     List<Map<String, Object>> initialUserScripts = (List<Map<String, Object>>) arguments.get("initialUserScripts");
@@ -163,7 +163,7 @@ public class InAppBrowserManager {
     extras.putString("initialHistoryUrl", historyUrl);
     extras.putString("id", id);
     extras.putString("managerId", this.id);
-    extras.putSerializable("settings", (Serializable) settings);
+//    extras.putSerializable("settings", (Serializable) settings);
     extras.putSerializable("contextMenu", (Serializable) contextMenu);
     extras.putInt("windowId", windowId != null ? windowId : -1);
     extras.putSerializable("initialUserScripts", (Serializable) initialUserScripts);

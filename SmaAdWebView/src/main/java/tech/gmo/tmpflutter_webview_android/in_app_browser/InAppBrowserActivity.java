@@ -85,8 +85,8 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
     manager = InAppBrowserManager.shared.get(managerId);
     if (manager == null || manager.plugin == null) return;
 
-    Map<String, Object> settingsMap = (Map<String, Object>) b.getSerializable("settings");
-    customSettings.parse(settingsMap);
+//    Map<String, Object> settingsMap = (Map<String, Object>) b.getSerializable("settings");
+//    customSettings.parse(settingsMap);
 
     windowId = b.getInt("windowId");
 
@@ -115,7 +115,7 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
     }
 
     InAppWebViewSettings webViewSettings = new InAppWebViewSettings();
-    webViewSettings.parse(settingsMap);
+//    webViewSettings.parse(settingsMap);
     webView.customSettings = webViewSettings;
     webView.contextMenu = contextMenu;
 
