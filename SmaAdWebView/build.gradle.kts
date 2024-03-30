@@ -42,7 +42,7 @@ afterEvaluate{
             create("release", MavenPublication::class.java) {
                 groupId = "com.github.ktoshiiio"
                 artifactId = "jitpack"
-                version = "0.1.30"
+                version = "0.1.31"
                 artifact("$buildDir/outputs/aar/SmaAdWebView-release.aar")
             }
         }

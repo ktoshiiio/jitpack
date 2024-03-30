@@ -128,7 +128,7 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
 
     List<UserScript> userScripts = new ArrayList<>();
     if (initialUserScripts != null) {
-      for (Map<String, Object> initialUserScript : inßitialUserScripts) {
+      for (Map<String, Object> initialUserScript : initialUserScripts) {
         userScripts.add(UserScript.fromMap(initialUserScript));
       }
     }
@@ -136,7 +136,7 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
 
     actionBar = getSupportActionBar();
 
-//    prepareView();
+    prepareView();
 
 //    if (windowId != -1) {
 //      Log.e("TAG", "InAppBrowserActivity.java onCreate windowId = " + windowId);
@@ -211,6 +211,8 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
     if (webView != null) {
       Log.e("TAG", "InAppBrowserActivity.java prepareView webView is not null");
       webView.prepare();
+    }else{
+      Log.e("TAG", "InAppBrowserActivity.java prepareView webView is null");
     }
 
     if (customSettings.hidden){
