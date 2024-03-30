@@ -215,19 +215,20 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
       Log.e("TAG", "InAppBrowserActivity.java prepareView webView is null");
     }
 
-//    if (customSettings.hidden){
-//      Log.e("TAG", "InAppBrowserActivity.java prepareView customSettins hidden is true");
-//      hide();
-//    }
-//    else{
-//      Log.e("TAG", "InAppBrowserActivity.java prepareView customSettins hidden is false");
-//      show();
-//    }
+    if (customSettings.hidden){
+      Log.e("TAG", "InAppBrowserActivity.java prepareView customSettins hidden is true");
+      hide();
+    }
+    else{
+      Log.e("TAG", "InAppBrowserActivity.java prepareView customSettins hidden is false");
+      show();
+    }
 
 
     progressBar = findViewById(R.id.progressBar);
 
     if (progressBar != null) {
+      Log.e("TAG", "InAppBrowserActivity.java prepareView progressBar is not null");
       if (customSettings.hideProgressBar)
         progressBar.setMax(0);
       else
@@ -235,6 +236,7 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
     }
 
     if (actionBar != null) {
+      Log.e("TAG", "InAppBrowserActivity.java prepareView actionBar is not null");
       actionBar.setDisplayShowTitleEnabled(!customSettings.hideTitleBar);
 
       if (customSettings.hideToolbarTop)
