@@ -95,6 +95,7 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
 //    customSettings.parse(settingsMap);
 
     windowId = b.getInt("windowId");
+    Log.e("TAG", "InAppBrowserActivity.java onCreate windowId = " + windowId.toString());
 
     setContentView(R.layout.activity_web_view);
     
@@ -418,6 +419,7 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
   }
 
   public void show() {
+    Log.e("TAG", "InAppBrowserActivity.java show() is called");
     isHidden = false;
     Intent openActivity = new Intent(this, InAppBrowserActivity.class);
     openActivity.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
