@@ -194,7 +194,7 @@ public class InAppBrowserActivity extends AppCompatActivity implements InAppBrow
       webView.loadDataWithBaseURL(baseUrl, initialData, mimeType, encoding, historyUrl);
     }
     else if (initialUrlRequest != null) {
-      Log.e("TAG", "InAppBrowserActivity.java initialUrlRequest =  " + URLRequest.fromMap(initialUrlRequest);
+      Log.e("TAG", "InAppBrowserActivity.java initialUrlRequest =  " + URLRequest.fromMap(initialUrlRequest).toString());
       URLRequest urlRequest = URLRequest.fromMap(initialUrlRequest);
       if (urlRequest != null) {
         webView.loadUrl(urlRequest);
